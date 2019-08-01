@@ -58,10 +58,35 @@ $(document).ready(function() {
        dataType:"json",
        success:function(data){
     	   
-    	   
-       }
-   
-	   
+          $("#div_body_star_box").append(
+         "<div class='div_greet'><img src='+data[i].img+' /><br />
+							<button class="btu_greet">打招呼</button>
+						</div>
+
+						<div class="div_greet">
+							<img src="img/84D71AF7416B95AFF7C84EDE305E3B53(1).jpg" /><br />
+							<button class="btu_greet">打招呼</button>
+						</div>
+
+						<div class="div_greet">
+							<img src="img/9C73F6ECE3C96F527D6D5B3731B33B98.jpg" /><br />
+							<button class="btu_greet">打招呼</button>
+						</div>
+
+						<div class="div_greet">
+							<img src="img/C7333F03BBF2C1C3F33BD68A5CC9C39F.jpg" /><br />
+							<button class="btu_greet">打招呼</button>
+						</div>
+					</div>"  
+          
+          
+          
+          );
+     
+       
+       
+       
+       }  	   
 	   
    })
 
