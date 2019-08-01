@@ -9,4 +9,5 @@ public interface MapperStar {
 
 	public  List<User> selectHots();
 	
+	
 }
