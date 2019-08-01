@@ -17,7 +17,6 @@ private ServiceStar serviceStar;
 @RequestMapping("selectStar")
 @ResponseBody
 public  List<User> selectHots(){
-
 	return serviceStar.selectHots();
 	
 }

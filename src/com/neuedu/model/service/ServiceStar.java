@@ -12,8 +12,7 @@ import com.neuedu.model.mapper.MapperStar;
 public class ServiceStar {
      @Autowired
      private MapperStar mapperStar;
-	public  List<User> selectHots(){
-		
+	public  List<User> selectHots(){	
 		return mapperStar.selectHots();
 	}
 	
