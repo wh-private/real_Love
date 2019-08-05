@@ -4,14 +4,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neuedu.model.mapper.MapperStar">
    
-   <select id="selectHots" resultType="Details" >
-   select *
-   from details
-   where 1=1
-   order by hot desc
+   <!-- 今日明星 -->
+   <select id="selectHots" resultMap="userForm"  >
+   select d.hot,u.uid,u.imgurl
+   from details d,user u
+   where d.uid=u.uid
+   order by d.hot desc
    limit 0,4
-  
    </select>
+	
+	<resultMap type="details" id="userForm">
+	<result property="hot" column="hot"/>
+	<result property="uid" column="hot"/>
+	<association property="user"></association>
+	</resultMap>
+	
 	
 </mapper>
 

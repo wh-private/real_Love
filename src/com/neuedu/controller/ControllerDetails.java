@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.neuedu.model.bean.User;
+import com.neuedu.model.bean.Details;
 import com.neuedu.model.service.ServiceStar;
 
 @Controller
@@ -16,7 +16,7 @@ public class ControllerDetails {
 private ServiceStar serviceStar;
 @RequestMapping("selectStar")
 @ResponseBody
-public  List<User> selectHots(){
+public  List<Details> selectHots(){
 	return serviceStar.selectHots();
 	
 }

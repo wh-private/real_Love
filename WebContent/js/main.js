@@ -49,7 +49,7 @@ $(document).ready(function() {
     })
     
 
-
+   
    //初始化今日明星
    $.ajax({
 	   url:"selectStar",
@@ -57,14 +57,15 @@ $(document).ready(function() {
        data:{},
        dataType:"json",
        success:function(data){
-    	   
+    	    console.log(data);
+    	   for(var i=0;i<data.lenth;i++){
           $("#div_body_star_box").append(
          "<div class='div_greet'><img src='"+data[i].imgurl+"' /><br /><button data-id='"+data[i].uid+"' class='btu_greet'>打招呼</button></div>"
 
           );
   
        }  	   
-	   
+       }
    })
 
 
