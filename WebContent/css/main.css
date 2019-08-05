@@ -224,7 +224,7 @@ a {
 	justify-content: center;
 }
 
-#div_body_star_box div {
+#div_body_star_box div{
 	flex: 1;
 }
 
@@ -232,8 +232,13 @@ a {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	width:33%
+	height:200px;
 }
-
+.div_greet>img{
+	width:90%;
+	height:80%;
+}
 .btu_greet {
 	background-color: #FD8403;
 	border-radius: 5px;

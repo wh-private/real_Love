@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neuedu.model.bean.Details;
-import com.neuedu.model.service.ServiceStar;
+import com.neuedu.model.service.ServiceDetails;
 
 @Controller
 public class ControllerDetails {
 @Autowired
-private ServiceStar serviceStar;
+private ServiceDetails serviceStar;
 @RequestMapping("selectStar")
 @ResponseBody
 public  List<Details> selectHots(){
@@ -21,4 +21,12 @@ public  List<Details> selectHots(){
 	
 }
 	
+
+@RequestMapping("selectGuessLike")
+@ResponseBody
+public List<Details> selectGuessLike(){
+	return serviceStar.selectGuessLike();
+	
+}
+
 }
