@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and uid != #{k_uid}
 		limit 0,6
 	</select>
-
+	
 
 
 </mapper>

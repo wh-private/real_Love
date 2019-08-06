@@ -26,9 +26,8 @@ public class UserService {
 		map.put("k_bodyheight1", (bodyheight-5));
 		map.put("k_bodyheight2", (bodyheight+5));
 		map.put("k_uid",uid);
-		System.out.println(map.values()+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  map.value()!!!!");
 		return userMapper.selectSimilar(map);
-		
 	}
 
+	
 }

@@ -4,13 +4,15 @@ $(document).ready(function(){
 	var str = location.href.substr(location.href.indexOf('?')+1);
 	var arr = str.split('&');
 	var uid;
+	var myid;
 	for(var i=0;i<arr.length;i++){
 		if(arr[i].indexOf('uid')>-1){
 			uid = arr[i].substr(arr[i].indexOf('=')+1);
 		}
+		if(arr[i].indexOf('myid')>-1){
+			myid = arr[i].substr(arr[i].indexOf('=')+1);
+		}
 	}
-	//alert("uid="+uid);
-	
 	//显示更多信息的一个小按钮
 	$("#more").click(function(){
 		$("#moreinfo").css("display","block");
@@ -55,8 +57,12 @@ $(document).ready(function(){
 				$("#pagetitle").html(pagetitle);//页眉
 				$("#Hi").html("Hi , "+data.username);//导航栏
 				$("#othername").html(data.username+"&nbsp;&nbsp;&nbsp;");
-				/*$("#imageone").append("");
-				$("#imagetwo").append("");*/
+				/*$("#imgone").empty();
+				$("#imgtwo").empty()*/;
+				//塞封面
+				//alert("<li><a target='_blank' href='#'><img title=\"\" src='img/"+data.imgurl+"' /></a></li>");
+				/*$("#imgone").append("<li><a target='_blank' href='#'><img title=\"\" src='img/"+data.imgurl+"' /></a></li>");
+				$("#imgtwo").append("<a target='_blank' href='#'><img src='img/"+data.imgurl+"' /></a>");*/
 				birthyear = parseInt(data.birthday.substr(0,4));
 				getDate();
 				$("#alineinfo").html((new Date().format("yyyy")-birthyear)+"岁 / "+data.height+"cm / "+data.education+" / "+data.region);
@@ -121,7 +127,7 @@ $(document).ready(function(){
 							$("#similar").append("<div class='thatman' data-id='"+data[i].uid+"' ><img class='similarimg' src='img/"+data[i].imgurl+"' /><br /><span class='similaruser'>"+data[i].username+"</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class='similaruser'>ID: </span><span>"+ data[i].uid+"</span><p>"+hisage+"岁&nbsp;&nbsp;&nbsp;&nbsp;"+data[i].marriage+"&nbsp;&nbsp;"+data[i].region+"</p></div>");
 							//单击相似用户，跳转至对应用户的个人界面
 							$(".thatman").on("click",function(){
-								location.href="other.html?uid="+$(this).attr("data-id");
+								location.href="other.html?uid="+$(this).attr("data-id")+"&myid="+myid;
 							})
 						}
 					}
@@ -136,10 +142,10 @@ $(document).ready(function(){
 			data:{},
 			dataType:'json',
 			success:function(data) {
+				
 			    for(var j =0;j<data.length;j++){
-			    	/*alert(data[j].imgurl);
-			    	$("#imageone").append("<li><a target='_blank' href='#'><img class='lunbotu' title='' src='img/"+data[j].imgurl+"' /></a></li>");
-			    	$("#imagetwo").append("<a target='_blank' href='#'><img  class='lunbotu' src='img/"+data[j].imgurl+"' /></a>");*/
+			    	/*$("#imgone").append("<li><a target='_blank' href='#'><img title=\"\" src='img/"+data.imgurl+"' /></a></li>");
+					$("#imgtwo").append("<a target='_blank' href='#'><img src='img/"+data.imgurl+"' /></a>");*/
 			    }
 			}
 		});
@@ -199,7 +205,45 @@ $(document).ready(function(){
 		}
 	});
 	
-	
+	//点击关注按钮，在关注表中添加对应的数据
+	$("#focus").click(function(){
+		$.ajax({
+			type:'post',
+			url:'addFocus/'+myid+"/"+uid,
+			data:{},
+			dataType:'json',
+			success:function(data) {
+				alert(data.result);
+			}
+		});
+	})
+	//点赞增加热度
+	$("#hot").click(function(){
+		if($("#hot").html() != "取消点赞"){
+			$.ajax({
+				type:'post',
+				url:'addHot/'+myid+"/"+uid,
+				data:{},
+				dataType:'json',
+				success:function(data) {
+					alert(data.result);
+				}
+			});
+			$("#hot").html("取消点赞");
+		}else{
+			$.ajax({
+				type:'post',
+				url:'cancelHot/'+myid+"/"+uid,
+				data:{},
+				dataType:'json',
+				success:function(data) {
+					alert(data.result);
+				}
+			});
+			$("#hot").html("赞一个");
+		}
+		
+	})
 	
 	
 	

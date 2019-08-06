@@ -19,4 +19,18 @@ public class DetailsController {
 	public Details selectDetailsById(@PathVariable int uid){
 		return detailsService.selectDetailsById(uid);
 	}
+	
+	@RequestMapping("addHot/{myid}/{uid}")
+	@ResponseBody
+	public String addHot(@PathVariable int myid,@PathVariable int uid){
+		String str = detailsService.addHot(myid, uid);
+		return "{\"result\":\""+str+"\"}";
+	}
+	
+	@RequestMapping("cancelHot/{myid}/{uid}")
+	@ResponseBody
+	public String cancelHot(@PathVariable int myid,@PathVariable int uid){
+		String str = detailsService.cancelHot(myid, uid);
+		return "{\"result\":\""+str+"\"}";
+	}
 }

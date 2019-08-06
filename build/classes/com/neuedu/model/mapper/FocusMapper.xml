@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.model.mapper.FocusMapper">
+ 
+	<insert id="addFocus" parameterType="map">
+		insert into focus(userid,focid) values(#{k_myid},#{k_uid})
+	</insert>
+ 	<select id="selectFocus" parameterType="map" resultType="Focus">
+ 		select * from focus where userid = #{k_myid} and focid = #{k_uid}
+ 	</select>
+	<insert id="addMessageForYou" parameterType="map">
+		insert into message(sendid,receiveid,sendtime,status,contents) values(#{k_myid},#{k_uid},now(),0,'关注信息')
+	</insert>
+</mapper>
