@@ -67,7 +67,13 @@ $(document).ready(function(){
 				bodyheight = data.height;
 				//计算属性
 				var arr = new Array("鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪");
-				$(".animal").html(arr[birthyear%12-3]);
+				var kkk ;
+				if(arr[birthyear%12-4]>0){
+					kkk = arr[birthyear%12-4];
+				}else{
+					kkk = arr[birthyear%12-4+12]
+				}
+				$(".animal").html(kkk);
 				//计算星座
 				var datearr = data.birthday.split("-");
 				var str2 = datearr[1]+datearr[2];

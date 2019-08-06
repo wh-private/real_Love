@@ -1,7 +1,7 @@
 package com.neuedu.model.bean;
 public class Like {
 	private int id;
-	private int intiativeid;//主动
+	private int initiativeid;//主动
 	private int passiveid;//被动
 	private User user;
 	
@@ -12,10 +12,10 @@ public class Like {
 		this.id = id;
 	}
 	public int getIntiativeid() {
-		return intiativeid;
+		return initiativeid;
 	}
 	public void setIntiativeid(int intiativeid) {
-		this.intiativeid = intiativeid;
+		this.initiativeid = intiativeid;
 	}
 	public int getPassiveid() {
 		return passiveid;
