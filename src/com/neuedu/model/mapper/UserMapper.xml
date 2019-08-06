@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.model.mapper.UserMapper">
+
+	<select id="selectUserById" parameterType="int" resultType="User">
+		select * from user where uid = #{uid}
+	</select>
+	<select id="selectSimilar" parameterType="map" resultType="User">
+		select * from user 
+		where birthday between #{k_birthyear1} and #{k_birthyear2} 
+		and height between #{k_bodyheight1} and #{k_bodyheight2} 
+		and uid != #{k_uid}
+		limit 0,6
+	</select>
+
+
+
+</mapper>
