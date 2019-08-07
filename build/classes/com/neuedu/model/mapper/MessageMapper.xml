@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.model.mapper.MessageMapper">
+	<insert id="sendHi" parameterType="map">
+		insert into message(sendid,receiveid,sendtime,status,contents) values(#{k_myid},#{k_uid},now(),0,#{k_contents})
+	</insert>
+	<select id="selectHi" parameterType="map" resultType="Message">
+		select * from message where sendid = #{k_myid} and receiveid = #{k_uid} and status = 0;
+	</select>
+
+</mapper>

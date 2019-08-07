@@ -1,13 +1,19 @@
 package com.neuedu.model.bean;
 
-public class Match {
+public class Pair {
 	//Æ¥Åä±í
 	private int id;
 	private int intiativeid;
 	private int passiveid;
-	private String status;
+	private int status;
 	private User user;
 	
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	public int getId() {
 		return id;
 	}
@@ -25,12 +31,6 @@ public class Match {
 	}
 	public void setPassiveid(int passiveid) {
 		this.passiveid = passiveid;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
 	}
 	public User getUser() {
 		return user;

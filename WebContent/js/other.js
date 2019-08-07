@@ -74,7 +74,7 @@ $(document).ready(function(){
 				//计算属性
 				var arr = new Array("鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪");
 				var kkk ;
-				if(arr[birthyear%12-4]>0){
+				if(birthyear%12-4>0){
 					kkk = arr[birthyear%12-4];
 				}else{
 					kkk = arr[birthyear%12-4+12]
@@ -244,6 +244,57 @@ $(document).ready(function(){
 		}
 		
 	})
+	
+	//发消息
+	/*$("#send").click(function(){
+		$("#focus").click(function(){
+			$.ajax({
+				type:'post',
+				url:'sendMessage/'+myid+"/"+uid,
+				data:{},
+				dataType:'json',
+				success:function(data) {
+					alert(data.result);
+				}
+			});
+		})
+	});*/
+	
+	//打招呼
+	$("#hi").click(function(){
+		$.ajax({
+			type:'post',
+			url:'sendHi/'+myid+"/"+uid,
+			data:{},
+			dataType:'json',
+			success:function(data) {
+				alert(data.result);
+			}
+		});
+		
+	})
+	//点击请求牵线
+	$("#match").click(function(){
+		$.ajax({
+			type:'post',
+			url:'requestMatch/'+myid+"/"+uid,
+			data:{},
+			dataType:'json',
+			success:function(data) {
+				alert(data.result);
+			}
+		});
+	})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
