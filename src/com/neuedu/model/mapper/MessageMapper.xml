@@ -9,5 +9,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectHi" parameterType="map" resultType="Message">
 		select * from message where sendid = #{k_myid} and receiveid = #{k_uid} and status = 0;
 	</select>
+	<insert id="sendMessage" parameterType="map">
+		insert into message(sendid,receiveid,sendtime,status,contents) values(#{k_myid},#{k_uid},now(),0,#{k_content})
+	</insert>
+	<select id="selectMessageTime" parameterType="map" resultType="long">
+		select  UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(max(sendtime))  from message where sendid = #{k_myid} and receiveid = #{k_uid}
+	</select>
 
 </mapper>

@@ -5,12 +5,60 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.neuedu.model.mapper.MapperLike">
  
 <select id="selectVs" resultType="User">
-select username,imgurl
+select username,imgurl,uid
 from user
-limit 0,2
+limit 0,1
+</select> 
+<!-- 一键钟情 分页 -->
+<!-- <select id="selectVs" resultType="User">
+select username,imgurl,uid
+from user
+limit #{pagenumbegin},#{pagesize}
 </select> 
  
-	
+    查询有多少条
+    <select id="selectCount"  resultType="int">
+    select count(*) 
+    from user
+    </select> -->
+
+ <!-- 查以喜欢的 -->
+<select id="selectAlreadyLike"  parameterType="int" resultMap="AlreadyLike">
+select u.username,u.imgurl,u.uid,l.initiativeid,l.passiveid
+from `like` l, `user` u 
+where l.initiativeid=u.uid
+limit 0,6
+</select> 
+<resultMap type="like" id="AlreadyLike">
+	<result property="initiativeid" column="initiativeid"/>
+	<result property="passiveid" column="passiveid"/>
+	<association property="user" column="uid" resultMap="AlreadyLikes"></association>
+	</resultMap>
+	<resultMap type="User" id="AlreadyLikes">
+	<result property="imgurl" column="imgurl" />
+	<result property="username" column="username" />
+	<result property="uid" column="uid" />
+	</resultMap>
+	<!-- 一键喜欢点击 -->
+    <insert id="insertLike" parameterType="map">
+     insert into `like` (initiativeid,passiveid)
+     values (#{k_initiativeid},#{k_passiveid})
+    </insert>
+    <!-- 2 -->
+    <insert id="insertLike2" parameterType="map">
+     insert into `like` (initiativeid,passiveid)
+     values (#{k_initiativeid},#{k_passiveid})
+    </insert>
+    
+    <!-- 猜你喜欢 喜欢表加人数 -->
+	<insert id="insertGuessLike" parameterType="map">
+     insert into `like` (initiativeid,passiveid)
+     values (#{k_initiativeid},#{k_passiveid})
+    </insert>
+    
+   
+   
+    
 </mapper>
 
 

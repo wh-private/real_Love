@@ -29,15 +29,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select u.imgurl, u.username,d.job,d.uid
 	from details d,user u
     where d.uid=u.uid
-    limit 0,4
+    limit 0,6
 	</select>
 	<resultMap type="details" id="GuessLike">
 	<result property="job" column="job" />
 	<result property="uid" column="uid"/>
 	<association property="user" column="uid" resultMap="GuessLikeass"></association>
 	</resultMap>
-	<resultMap type="User" id="GuessLikeass">
 	
+	
+	<resultMap type="User" id="GuessLikeass">
+	<result property="imgurl" column="imgurl" />
+	<result property="username" column="username" />
 	</resultMap>
 </mapper>
 

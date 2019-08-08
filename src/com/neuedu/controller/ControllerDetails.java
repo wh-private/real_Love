@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neuedu.model.bean.Details;
 import com.neuedu.model.service.ServiceDetails;
-
+    
 @Controller
 public class ControllerDetails {
 @Autowired
@@ -25,8 +25,8 @@ public  List<Details> selectHots(){
 @RequestMapping("selectGuessLike")
 @ResponseBody
 public List<Details> selectGuessLike(){
-	return serviceStar.selectGuessLike();
-	
+ 	return serviceStar.selectGuessLike();
+ 		
 }
 
 }

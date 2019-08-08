@@ -12,4 +12,5 @@ public interface FocusMapper {
 	
 	//在对方消息表中添加关注提示消息；
 	public void addMessageForYou(Map<String,Object> map);
+	
 }

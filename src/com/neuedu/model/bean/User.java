@@ -13,7 +13,7 @@ public class User {
 	private String region;//ËùÔÚÇøÓò
 	private int height;
 	private String education;
-	private int sal;
+	private String sal;
 	private String marriage;
 	private String imgurl;
 	
@@ -71,10 +71,10 @@ public class User {
 	public void setEducation(String education) {
 		this.education = education;
 	}
-	public int getSal() {
+	public String  getSal() {
 		return sal;
 	}
-	public void setSal(int sal) {
+	public void setSal(String sal) {
 		this.sal = sal;
 	}
 	public String getMarriage() {

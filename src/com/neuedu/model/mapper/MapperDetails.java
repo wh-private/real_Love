@@ -11,5 +11,5 @@ public interface MapperDetails {
 	public  List<Details> selectHots();
 	//²ÂÄãÏ²»¶
 	public List<Details> selectGuessLike();
-	
+	 
 }

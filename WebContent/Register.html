@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册</title>
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="css/Register.css" />
+		<script src="js/jquery-3.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Register.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/distpicker.js" type="text/javascript" charset="utf-8"></script><!-- 省级联动 -->
+		<script src="js/select.js" type="text/javascript" charset="utf-8"></script><!-- 日期联动 -->
+<!-- <script src="../js/validation.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/input.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script> -->
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo" style="font-size: 30px; color: #FFFFFF;">
+				相亲吗，序猿？
+			</div>
+			<a id="register" href="Login.html">登陆</a>
+		</div>
+		<form id="singup" class="box"  method="post">
+			<h1>账号信息</h1>
+			<dl>
+				<dt>
+					<h2>注册方式</h2>
+				</dt>
+				<dd>
+					<input type="radio" checked="checked"  class="gcs-radio" id="select" />
+					<label>邮箱注册</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt class="title">邮箱</dt>
+				<dd>
+					<input id="email" type="text" name="account" class="input_">
+					<div class="prompt" id="email_msg">
+						请填写邮箱
+					</div>
+				</dd>
+			</dl>
+			<dl>
+				<dt class="title">密码</dt>
+				<dd>
+					<input id="password" type="password" name="password" class="input_">
+					<div class="prompt" id="password_msg">
+						请填写密码
+					</div>
+				</dd>
+			</dl>
+			<dl>
+				<dt class="title">确认密码</dt>
+				<dd>
+					<input id="qrpassword" type="password" name="qrpassword" class="input_">
+					<div class="prompt" id="qrpassword_msg">
+						两次密码不一致
+					</div>
+				</dd>
+			</dl>
+			<h1>完善资料</h1>
+			<dl>
+				<dt class="title">昵称</dt>
+				<dd>
+					<input id="nikename" type="text" name="username" class="input_">
+					<div class="prompt" id="nikename_msg">
+						请填写昵称
+					</div>
+				</dd>
+			</dl>
+			<dl>
+				<dt class="title">性别</dt>
+				<dd>
+					<input checked="checked" type="radio" name="sex" class="gcs" value="男" />
+
+					<label for="男">我是男生</label>
+
+					<input type="radio" name="sex" class="gcs" value="女" />
+
+					<label for="女">我是女生</label>
+					<div class="prompt" id="sexPmt"><span>*</span>&nbsp;注册后不可更改</div>
+				</dd>
+			</dl>
+			<dl>
+				<dt class="title">生日</dt>
+				<dd id="date">
+					<select name="year" id="year">
+						<option value="">选择年份</option>
+					</select>
+					<select name="month" id="month">
+						<option value="">选择月份</option>
+					</select>
+					<select id="days" class="day">
+						<option value="">选择日期</option>
+					</select>
+					<input id="birthday" name="birthday" type="text" style="display: none;">
+					<!-- <script type="text/javascript">
+						$(function() {
+							$("#date").selectDate()
+
+							$("#days").focusout(function() {
+								var year = $("#year option:selected").html()
+								var month = $("#month option:selected").html()
+								var day = $("#days option:selected").html()
+								console.log(year + month + day)
+							})
+
+						})
+					</script> -->
+				</dd>
+				<div class="prompt" id="mybirth_msg">
+					请填写生日
+				</div>
+			</dl>
+			<dl>
+				<dt class="title">地区</dt>
+				<dd class="gegend" data-toggle="distpicker">
+					<select id="province" class="date" name="province">
+						<option value="">请选择</option>
+					</select>
+					<select id="city" class="date" name="city">
+						<option value="">请选择</option>
+					</select>
+					<select id="country" class="date" name="country">
+						<option value="">请选择</option>
+					</select>
+					<div class="prompt" id="mycity_msg">
+						请填写住址
+					</div>
+					<input id="region" name="region" type="text" style="display: none;">
+				</dd>
+			</dl>
+			<dl>
+				<dt class="title">身高</dt>
+				<dd class="info">
+					<select id="height" class="date" name="height">
+						<option value="144">145厘米以下</option>
+						<option value="146">146厘米</option>
+						<option value="145">145厘米</option>
+						<option value="147">147厘米</option>
+						<option value="148">148厘米</option>
+						<option value="149">149厘米</option>
+						<option value="150">150厘米</option>
+						<option value="151">151厘米</option>
+						<option value="152">152厘米</option>
+						<option value="153">153厘米</option>
+						<option value="154">154厘米</option>
+						<option value="155">155厘米</option>
+						<option value="156">156厘米</option>
+						<option value="157">157厘米</option>
+						<option value="158">158厘米</option>
+						<option value="159">159厘米</option>
+						<option value="160">160厘米</option>
+						<option value="161">161厘米</option>
+						<option value="162">162厘米</option>
+						<option value="163">163厘米</option>
+						<option value="164">164厘米</option>
+						<option value="165">165厘米</option>
+						<option value="166">166厘米</option>
+						<option value="167">167厘米</option>
+						<option value="168">168厘米</option>
+						<option value="169">169厘米</option>
+						<option value="170" selected="selected">170厘米</option>
+						<option value="171">171厘米</option>
+						<option value="172">172厘米</option>
+						<option value="173">173厘米</option>
+						<option value="174">174厘米</option>
+						<option value="175">175厘米</option>
+						<option value="176">176厘米</option>
+						<option value="177">177厘米</option>
+						<option value="178">178厘米</option>
+						<option value="179">179厘米</option>
+						<option value="180">180厘米</option>
+						<option value="181">181厘米</option>
+						<option value="182">182厘米</option>
+						<option value="183">183厘米</option>
+						<option value="184">184厘米</option>
+						<option value="185">185厘米</option>
+						<option value="186">186厘米</option>
+						<option value="187">187厘米</option>
+						<option value="188">188厘米</option>
+						<option value="189">189厘米</option>
+						<option value="190">190厘米</option>
+						<option value="191">191厘米</option>
+						<option value="192">192厘米</option>
+						<option value="193">193厘米</option>
+						<option value="194">194厘米</option>
+						<option value="195">195厘米</option>
+						<option value="196">196厘米</option>
+						<option value="197">197厘米</option>
+						<option value="198">198厘米</option>
+						<option value="199">199厘米</option>
+						<option value="200">200厘米</option>
+						<option value="201">201厘米</option>
+						<option value="202">202厘米</option>
+						<option value="203">203厘米</option>
+						<option value="204">204厘米</option>
+						<option value="205">205厘米</option>
+						<option value="206">206厘米</option>
+						<option value="207">207厘米</option>
+						<option value="208">208厘米</option>
+						<option value="209">209厘米</option>
+						<option value="210">210厘米</option>
+						<option value="211">210厘米以上</option>
+					</select>
+				</dd>
+				<dt class="title">学历</dt>
+				<dd class="info">
+					<select id="degree" class="degree" name="education">
+						<option value="初中">初中</option>
+						<option value="中专/职高/技校">中专/职高/技校</option>
+						<option value="高中">高中</option>
+						<option value="大专">大专</option>
+						<option value="本科" selected="selected">本科</option>
+						<option value="硕士">硕士</option>
+						<option value="博士">博士</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt class="title">收入</dt>
+				<dd class="info">
+					<select id="income" class="income" name="sal">
+						<option value="<2000">2000以下</option>
+						<option value="<5000" selected="selected">2000-5000</option>
+						<option value="<10000">5000-10000</option>
+						<option value="<20000">10000-20000</option>
+						<option value="<50000">20000-50000</option>
+						<option value=">50001">50000以上</option>
+					</select>
+				</dd>
+				<dt class="title">婚姻</dt>
+				<dd class="info">
+					<select id="marriage" class="marriage" name="marriage">
+						<option value="未婚" selected="selected">未婚</option>
+						<option value="离异">离异</option>
+						<option value="丧偶">丧偶</option>
+					</select>
+				</dd>
+			</dl>
+			<input type="button" name="" id="register_btn" value="注册" />
+		</form>
+	</body>
+</html>

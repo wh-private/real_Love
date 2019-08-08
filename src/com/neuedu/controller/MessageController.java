@@ -19,4 +19,11 @@ public class MessageController {
 		String str = messageService.sendHi(myid, uid);
 		return "{\"result\":\""+str+"\"}";
 	}
+	
+	@RequestMapping("sendMessage/{myid}/{uid}/{content}")
+	@ResponseBody
+	public String sendMessage(@PathVariable int myid,@PathVariable int uid,@PathVariable String content){
+		String str = messageService.sendMessage(myid, uid, content);
+		return "{\"result\":\""+str+"\"}";
+	}
 }

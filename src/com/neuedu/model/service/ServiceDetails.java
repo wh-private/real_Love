@@ -19,6 +19,7 @@ public class ServiceDetails {
 	public List<Details> selectGuessLike(){
 		return mapperStar.selectGuessLike();
 		
+		
 	}
 	
 	

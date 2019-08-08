@@ -204,6 +204,17 @@ $(document).ready(function(){
 			$("#thechildren").html(data.children);
 		}
 	});
+	//基本信息的初始化(五)---[focus 表]
+	//待改进（！）
+	/*$.ajax({
+		type:'post',
+		url:'selectFocus/'+uid+"/"+myid,
+		data:{},
+		dataType:'json',
+		success:function(data) {
+			$("#focus").html(data.result);
+		}
+	});*/
 	
 	//点击关注按钮，在关注表中添加对应的数据
 	$("#focus").click(function(){
@@ -245,23 +256,38 @@ $(document).ready(function(){
 		
 	})
 	
-	//发消息
-	/*$("#send").click(function(){
-		$("#focus").click(function(){
+	//单击发消息出消息框
+	$("#send").click(function(){
+		$("#someMessage").css("display","block");
+	});
+	//点击确认发送，在消息表中添加对应的消息
+	$("#confirm").click(function(){
+		if($("#messagetext").val()==""){
+			alert("发送的消息不能为空哦···");
+		}else{
+			var content = $("#messagetext").val();
 			$.ajax({
 				type:'post',
-				url:'sendMessage/'+myid+"/"+uid,
+				url:'sendMessage/'+myid+"/"+uid+"/"+content,
 				data:{},
 				dataType:'json',
 				success:function(data) {
 					alert(data.result);
 				}
 			});
-		})
-	});*/
+			$("#messagetext").val("");
+			$("#someMessage").css("display","none");
+		}
+		
+	})
+	//点击取消模态框消失
+	$("#cancel").click(function(){
+		$("#messagetext").val("");
+		$("#someMessage").css("display","none");
+	})
 	
 	//打招呼
-	$("#hi").click(function(){
+	$("#sayhi").click(function(){
 		$.ajax({
 			type:'post',
 			url:'sendHi/'+myid+"/"+uid,
@@ -301,7 +327,3 @@ $(document).ready(function(){
 })
 	
 	
-	
-	
-	
-

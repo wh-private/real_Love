@@ -17,9 +17,7 @@ public class FocusController {
 	@RequestMapping("addFocus/{myid}/{uid}")
 	@ResponseBody
 	public String addFocus(@PathVariable int myid,@PathVariable int uid){
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+myid+"      "+uid+"@@@@@@@@@");
 		String str = focusService.addFocus(myid, uid);
 		return "{\"result\":\""+str+"\"}";
 	}
-	
 }
